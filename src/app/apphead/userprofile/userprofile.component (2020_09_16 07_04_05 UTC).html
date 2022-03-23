@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand"><i class="fa fa-rebel"></i> Asset Management System</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="margin-left:1010px;margin-right:0px">
+            <li class="nav-item">
+                <strong style="color:white; margin-right: 20px;">{{username}}'s profile</strong>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn" style="border-radius: 50%;background-color:rgb(7, 7, 146);color:white"
+                    routerLink="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn ml-3"
+                    style="border-radius: 50%;background-color:rgba(8, 180, 80, 0.589);color:white" routerLink="/"><i
+                        class="fa fa-user-o fa-2x" aria-hidden="true"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn ml-2" style="border-radius: 50%;color: whitesmoke;" routerLink="/"><i
+                        class="fa fa-cog fa-2x" aria-hidden="true"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-danger ml-2" style="border-radius: 50%;color:white" routerLink="/"><i
+                        class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<section>
+    <h1>USER PROFILE</h1>
+    <br>
+    <table>
+        <tr>
+            <td style="width: 300px;">First Name:</td>
+            <td></td>
+            <td style="width: 1000px;text-align: center;">{{username}}</td>
+        </tr><br>
+        <tr>
+            <td style="width: 300px;">Last Name:</td>
+            <td></td>
+            <td style="width: 1000px;text-align: center;">{{lastname}}</td>
+        </tr><br>
+        <tr>
+            <td style="width: 300px;">Email:</td>
+            <td></td>
+            <td style="width: 1000px;text-align: center;">{{email}}</td>
+        </tr><br>
+        <tr>
+            <td style="width: 300px;">Total Assets:</td>
+            <td></td>
+            <td style="width: 1000px;text-align: center;">{{0}}</td>
+        </tr><br>
+    </table>
+    <button type="submit" class="btn btn-outline-secondary">Edit Profile</button>
+    <hr>
+</section>

@@ -1,0 +1,109 @@
+<nav class="navbar fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><i class="fa fa-rebel"></i> Asset Management System</a>
+    <form class="form-inline" style="color:whitesmoke" [formGroup]="login">
+        <label for="email" class="col-md-1 col-form-label">Email</label>
+        <input class="form-control" type="text" formControlName="mail">
+        <label for="password" class="col-md-2 col-form-label">Password</label>
+        <input class="form-control" type="password" formControlName="pass">
+        <button class="btn btn-sm btn-outline-warning" type="submit" (click)="button()">Login</button>
+    </form>
+</nav>
+<div style="float:left;margin-top:150px">
+    <img src="./assets/computer.png" alt="computer" style="width:500px;height:500px;margin-left:50px">
+</div>
+<section style="float: right;margin-right: 300px;margin-top:150px">
+    <h1 style="text-align: center;">SIGN UP</h1><br>
+    <form [formGroup]="register">
+        <div class="form-group row ml-1">
+            <label for="fname" class="col-sm-4 col-form-label">FirstName</label>
+            <div class="col-md-7">
+                <input type="text" class="form-control" formControlName="fname" placeholder="Enter your firstname"><br>
+                <div *ngIf="register.get('fname').errors && register.get('fname').touched  && isSubmitted">
+                    <div *ngIf="register.get('fname').hasError('required')">
+                        <span style="color: red;">Please Enter First Name.</span>
+                    </div>
+                    <div *ngIf="register.get('fname').hasError('minlength')">
+                        <span style="color: red;">First Name requied atleast 3 characters.</span>
+                    </div>
+                    <div *ngIf="register.get('fname').hasError('maxlength')">
+                        <span style="color: red;">First Name requied only 30 characters.</span>
+                    </div>
+                    <div *ngIf="register.get('fname').hasError('pattern')">
+                        <span style="color: red;">Only characters are allowed.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row ml-1">
+            <label for="lname" class="col-sm-4 col-form-label">LastName</label>
+            <div class="col-md-7">
+                <input type="text" class="form-control" formControlName="lname" placeholder="Enter your lastname"><br>
+            </div>
+        </div>
+        <div class="form-group row ml-1">
+            <label for="email" class="col-sm-4 col-form-label">Email</label>
+            <div class="col-md-7">
+                <input type="email" class="form-control" formControlName="email" placeholder="Enter your email"><br>
+                <div *ngIf="register.get('email').errors && register.get('fname').touched && isSubmitted ">
+                    <div *ngIf="register.get('email').hasError('required')">
+                        <span style="color: red;">Please Enter Your Email.</span>
+                    </div>
+                    <div *ngIf="register.get('email').hasError('minlength')">
+                        <span style="color: red;">Email requied atleast 5 characters.</span>
+                    </div>
+                    <div *ngIf="register.get('email').hasError('maxlength')">
+                        <span style="color: red;">Email requied only 100 characters.</span>
+                    </div>
+                    <div *ngIf="register.get('email').hasError('pattern')">
+                        <span style="color: red;">Please enter valid email address.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row ml-1">
+            <label for="password" class="col-sm-4 col-form-label col-ml-3">Password</label>
+            <div class="col-md-7">
+                <input type="password" class="form-control" formControlName="password" placeholder="Password"><br>
+                <div *ngIf="register.get('password').errors && register.get('fname').touched && isSubmitted">
+                    <div *ngIf="register.get('password').hasError('required')">
+                        <span style="color: red;">Please Enter Password.</span>
+                    </div>
+                    <div *ngIf="register.get('password').hasError('minlength')">
+                        <span style="color: red;">The password requied atleast 5 characters.</span>
+                    </div>
+                    <div *ngIf="register.get('password').hasError('maxlength')">
+                        <span style="color: red;">The password requied only 12 characters.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row ml-1">
+            <label for="conpassword" class="col-sm-4 col-form-label col-ml-3">ConfirmPassword</label>
+            <div class="col-md-7">
+                <input type="password" class="form-control" formControlName="conpassword" placeholder="Password"><br>
+                <div *ngIf="register.get('conpassword').errors && register.get('fname').touched && isSubmitted">
+                    <div *ngIf="register.get('conpassword').hasError('required')">
+                        <span style="color: red;">Please Enter Password that matches above Password.</span>
+                    </div>
+                    <div *ngIf="register.get('conpassword').hasError('minlength')">
+                        <span style="color: red;">The password requied atleast 5 characters.</span>
+                    </div>
+                    <div *ngIf="register.get('conpassword').hasError('maxlength')">
+                        <span style="color: red;">The password requied only 12 characters.</span>
+                    </div>
+                </div>
+                <div *ngIf="register.get('password').value != register.get('conpassword').value">
+                    <span style="color:red;">Not matching</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 offset-4">
+            <button type="submit" class="btn btn-secondary" (click)="onFormSubmit()">Submit</button>
+        </div>
+    </form>
+    <hr>
+    <footer style="text-align: center;">
+        <p><i class="fa fa-copyright"></i>2020 All rights reserved</p>
+    </footer>
+</section>
+<router-outlet></router-outlet>
